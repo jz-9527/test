@@ -1,0 +1,466 @@
+.header{
+    height: 13.34rem;
+    /* height: 8.35rem; */
+    padding-top:0.45rem;
+    padding-bottom: 0.54rem;
+    background-image: url('../images/header-bg1.jpg');
+    background-color:#290573;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    box-sizing: border-box;
+}
+.user-box{
+    padding-left: 0.34rem;
+}
+.user-info{
+    margin-top: 0.06rem;
+}
+.user-icon{
+    width: 0.9rem;
+    height: 0.9rem;
+    border-radius: 50%;
+}
+.user-mobile{
+    width: 2.2rem;
+    height: 0.4rem;
+    line-height: 0.43rem;
+    font-size: 0.28rem;
+    color: #FDE708;
+    /* text-align: center; */
+    padding-left: 0.2rem;
+    margin-bottom: 0.07rem;
+    background:#E31603;
+    border-radius: 0.12rem;
+    box-sizing: border-box;
+}
+.user-points{
+    width: 2.2rem;
+    height: 0.4rem;
+    line-height: 0.43rem;
+    font-size: 0.24rem;
+    color: #FDE708;
+    padding-left: 0.2rem;
+    background:#E31603;
+    border-radius: 0.12rem;
+    box-sizing: border-box;
+}
+.my-prize{
+    font-size: 0.18rem;
+    color: #F7FA03;
+    text-align: center;
+    margin-right: 0.28rem;
+    background-color: transparent;
+    border: 0;
+}
+.my-prize-img{
+    width: 0.7rem;
+    height: 0.7rem;
+    margin-bottom: 2px;
+}
+.lucky-btn{
+    position: absolute;
+    /* width: 2.14rem;
+    height: 2.3rem; */
+    width: 1.63rem;
+    /* height: 1.95rem; */
+    top:47%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.turnplate-arrow{
+    position:absolute;
+    width: 1.06rem;
+    height: 1.47rem;
+    top:-0.2rem;
+    left: 3.2rem;
+}
+
+.today-text{
+    width: 6.33rem;
+    /* height: 1.04rem; */
+    font-size: 0.4rem;
+    font-weight:500;
+    color: #0CF6FF;
+    text-align: center;
+    padding: 0.32rem 0;
+    margin: 0 auto;
+    /* background:#C91D0C; */
+    border-radius: 0.52rem;
+}
+.today-num{
+    color: #ff3333;
+    margin: 0 0.1rem;
+}
+.turntable-box{
+    position: relative;
+    margin-top: 70px;
+}
+.exchange-lucky{
+    position: relative;
+    width: 3.71rem;
+    height:0.93rem;
+    margin: 0.55rem auto 0 auto;
+    background: url('../images/exchange-lucky-bg.png') no-repeat;
+    background-size: 100%;
+}
+.exchange-lucky-gray{
+    background: url('../images/exchange-lucky-bg-gray.png') no-repeat;
+    background-size: 100%;
+}
+.badge{
+    position: absolute;
+    width: 0.42rem;
+    height: 0.42rem;
+    line-height: 0.42rem;
+    font-size: 0.3rem;
+    color: #fff;
+    text-align: center;
+    background: #FF4343;
+    border-radius: 50%;
+    right:0.17rem;
+    top:-0.21rem;
+}
+
+.container{
+    /* padding-top: 0.6rem; */
+    margin-top: -1px;
+    background-image: url('../images/container-bg.jpg');
+    background-color: #5F25B8;
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+.con-item + .con-item{
+    /* margin-top: 0.47rem; */
+}
+.item-title,
+.item-title2,
+.item-title3{
+    position: relative;
+    width: 2.74rem;
+    height: 1rem;
+    margin: 0 auto;
+    background: url('../images/title1.png') no-repeat;
+    background-size: 100%;
+    top:0.5rem;
+}
+.item-title2{
+    background: url('../images/title2.png') no-repeat;
+    background-size: 100%;
+}
+.item-title3{
+    background: url('../images/title3.png') no-repeat;
+    background-size: 100%;
+}
+.item-con{
+    width: 6.94rem;
+    height: 3.09rem;
+    margin: 0 auto;
+    padding-top: 0.5rem;
+    /* background:#FEE3AE; */
+    background: url('../images/item1.png') no-repeat;
+    background-size: 100%;
+    /* border-radius: 0.3rem; */
+    box-sizing: border-box;
+}
+.item-con2{
+    width: 7.1rem;
+    margin: 0 auto;
+    padding-top: 1rem;
+    padding-left:0.8rem;
+    padding-bottom: 0.5rem;
+    background:url('../images/item2.png') no-repeat;
+    background-size: 100%;
+    /* background:#FEE3AE; */
+    border-radius: 0.3rem;
+    box-sizing: border-box;    
+}
+.item-con2-hide{
+    height: 4.3rem;
+    overflow-y: auto;
+}
+.item-con3{
+    width: 7rem;
+    height: 6rem;
+    margin: 0 auto 0.5rem auto;
+    padding: 0.78rem 0.7rem 0 0.7rem;
+    /* background:#FEE3AE; */
+    background: url('../images/item2.png') no-repeat;
+    background-size: 100% 110%;
+    border-radius: 0.3rem;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+.item-con3 p{
+    line-height: 0.5rem;
+    font-size: 0.26rem;
+    color: #483000;
+
+}
+.name-list-hide{
+    height: 1.5rem;
+    margin-top: 0.3rem;
+    overflow: hidden;
+}
+.name-list{
+    /* margin-top: 0.3rem; */
+}
+.name-item{
+    font-size: 0.24rem;
+    font-weight: 500;
+    color: #483000;
+    padding-left:0.6rem;
+}
+.name-item + .name-item{
+    margin-top: 0.29rem;
+}
+
+.prize-dec + .prize-dec{
+    margin-top: 0.2rem;
+}
+.prize-dec-l{
+    display: inline-block;
+    padding: 0.2rem;
+    background:#fff;
+    border-radius: 50%;
+}
+.prize-dec-img{
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    /* float: left; */
+}
+.prize-dec-r{
+    position: relative;
+    display: inline-block;
+    /* padding-top: 0.06rem; */
+    padding-left: 0.3rem;
+    box-sizing: border-box;
+    top:-0.08rem;
+}
+.prize-dec-name{
+    font-size: 0.28rem;
+    color:#333;
+    margin-bottom: 0.23rem;
+}
+.prize-dec-text{
+    font-size: 0.28rem;
+    color:#730900;
+}
+
+
+.footer{
+    height: 1.87rem;
+    /* margin-top: 1rem; */
+    background:url('../images/footer-bg.jpg') no-repeat;
+    background-size: 100%;
+}
+
+
+
+
+/* 弹窗 */
+.popup{
+    display: none;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.6);
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.popup-con{
+    position: relative;
+    width: 5.17rem;
+    height: 7.26rem;
+    text-align: center;
+    padding-top: 0.4rem;
+    margin: 1.5rem auto 0 auto;
+    background: url('../images/popup1.png') no-repeat;
+    background-size: 100%;
+}
+.luck-result-text1{
+    font-size: 0.55rem;
+    color: #fff;
+    letter-spacing: 3px;
+    margin-top: 1.7rem;
+}
+.luck-result-text2{
+    font-size: 0.26rem;
+    color: #FDF96F;
+    letter-spacing: 2px;
+    margin-top: 0.22rem;
+}
+.result-prize-img{
+    width: 1.34rem;
+    height: 1.34rem;
+    margin-top: 1rem;
+}
+.result-prize-name{
+    font-size: 0.28rem;
+    color: #666;
+    margin-top: 0.2rem;
+}
+.popup-btn{
+    width: 3.81rem;
+    height: 0.75rem;
+    line-height: 0.75rem;
+    font-size: 0.34rem;
+    color: #fff;
+    margin:0.25rem auto 0 auto;
+    background:#8E3AED;
+    border-radius:0.38rem;
+    /* background: url('../images/popup-btn.png') no-repeat; */
+    /* background-size: 100%; */
+}
+
+.myPrize-popup{
+    display: none;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.6);
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.myPrize-popup-con{
+    position: relative;
+    width: 4.96rem;
+    margin: 1.97rem auto 0 auto;
+    border-radius: 0.1rem;
+    /* overflow: hidden; */
+}
+.myPrize-popup-title{
+    height: 1.14rem;
+    line-height: 1.14rem;
+    font-size: 0.36rem;
+    font-weight: 600;
+    color: #333;
+    text-align: center;
+    background:#f3f000;
+    border-top-left-radius: 0.1rem;
+    border-top-right-radius: 0.1rem;
+}
+.myPrize-list{
+    height: 5.2rem;
+    padding: 0 0.3rem 0 0.3rem;
+    background: #fff;
+    border-bottom-left-radius:0.1rem;
+    border-bottom-right-radius:0.1rem;
+    overflow-y:auto;
+}
+.myPrize-item{
+    padding: 0.2rem 0;
+}
+.myPrize-item + .myPrize-item{
+    border-top:1px solid #E6E6E6
+}
+.myPrize-name{
+    font-size: 0.28rem;
+    color:#333;
+    margin-bottom: 0.1rem;
+}
+.myPrize-time{
+    font-size: 0.2rem;
+    color:#999;
+}
+.myPrize-btn{
+    float: right;
+    font-size: 0.22rem;
+    color: #999999;
+    padding: 0.1rem;
+    margin-top: -0.5rem;
+    border: 1px solid #CECECE;
+    border-radius: 0.1rem;
+}
+
+.close{
+    position: absolute;
+    width: 0.6rem;
+    height: 0.6rem;
+    margin-left: -0.3rem;
+    left: 50%;
+    bottom:-1rem;
+}
+
+.exchange-popup{
+    display: none;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.6);
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.exchange-popup-con{
+    width: 4.96rem;
+    padding-top: 0.3rem;
+    text-align: center;
+    margin: 5rem auto 0 auto;
+    background: #fff;
+    border-radius: 0.1rem;
+}
+.exchange-popup-title{
+    font-size: 0.34rem;
+    color: #111;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+.exchange-popup-text{
+    font-size: 0.28rem;
+    color: #111;
+}
+.exchange-popup-btn{
+    height:0.7rem;
+    margin-top: 0.3rem;
+    border-top:1px solid #eee
+}
+.exchange-popup-cancel{
+    height: 100%;
+    line-height: 2.5;
+    font-size: 0.28rem;
+    color: #111;
+}
+.exchange-popup-confirm{
+    height: 100%;
+    font-size: 0.28rem;
+    color: #111;
+    line-height: 2.5;
+    border-left: 1px solid #eee;
+}
+
+
+.toast{
+    display: none;
+    position: fixed;
+    font-size:0.3rem;
+    color: #fff;
+    padding:0.2rem 0.3rem;
+    background: #111;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 0.1rem;
+}
+
+
+
+
+
+/* 大转盘样式 */
+.banner{
+    display:block;
+    width:7.36rem;
+    padding-top: 0.2rem;
+    margin: 0 auto 0rem auto;
+    overflow: hidden;
+}
+.banner .turnplate{
+    display:block;
+    width:100%;
+    position:relative;
+    background: url('../images/turnplate-outside-bg.png') no-repeat center center;
+    background-size: 100%;
+}
+.banner .turnplate canvas.item{width:100%;}
+#sbtn{ position: absolute;top: 85%;text-align: center;width: 100%; }
+#sbtn img{ width: 24%;margin: 0 20px; }

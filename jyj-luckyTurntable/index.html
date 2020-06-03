@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>幸运大转盘</title>
+    <!-- <link rel="shortcut icon" href="#" /> -->
+    <link rel="icon" href="data:;base64,=">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/resize.js"></script>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="header">
+            <div class="user-box clearfix">
+                <div class="user-info L clearfix">
+                    <!-- <img src="" class="user-icon L">
+                    <div class="R">
+                        <div class="user-mobile"></div>
+                        <div class="user-points"></div>
+                    </div> -->
+                </div>
+                <button class="my-prize R">
+                    <img src="./images/myPrize.png" class="my-prize-img" alt=""><br>
+                    我的礼包
+                </button>
+            </div>
+            <div class="turntable-box">
+                <div class="content">
+                    <div class="banner">
+                        <!-- style="background-image:url(images/turnplate-bg.png);background-size:100% 100%;" -->
+                        <div class="turnplate">
+                            <!-- <canvas class="item" id="wheelcanvas" width="422px" height="422px"></canvas> -->
+                            <canvas class="item" id="wheelcanvas" width="460" height="460"></canvas>
+                            <!-- <img src="./images/turnplate-arrow.png" class="turnplate-arrow"> -->
+                            <img class="lucky-btn" src="./images/lucky-btn.png" />
+                        </div>
+                    </div>
+                </div>
+                <div class="lucky-info">
+                    <p class="today-text">今日剩余:<span class="today-num"></span>次</p>
+                    <!-- <div class="exchange-lucky">
+                        <div class="badge"></div>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="con-item">
+                <div class="item-title"></div>
+                <div class="item-con">
+                    <div class="name-list-hide">
+                        <ul class="name-list" id="name-list">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="con-item">
+                <div class="item-title2"></div>
+                <div class="item-con2">
+                    <div class="item-con2-hide">
+                        <!-- <div class="prize-dec">
+                            <div class="prize-dec-l">
+                                <img src="./images/prize-img1.png" class="prize-dec-img">
+                            </div>
+                            <div class="prize-dec-r">
+                                <p class="prize-dec-name">88现金券</p>
+                                <p class="prize-dec-text">88元无门槛现金券</p>
+                            </div>
+                        </div> -->
+                        <!-- <div class="prize-dec">
+                            <div class="prize-dec-l">
+                                <img src="./images/prize-img2.png" class="prize-dec-img">
+                            </div>
+                            <div class="prize-dec-r">
+                                <p class="prize-dec-name">5折尝鲜券</p>
+                                <p class="prize-dec-text">5折尝鲜券 上限80元</p>
+                            </div>
+                        </div> -->
+                        <div class="prize-dec">
+                            <div class="prize-dec-l">
+                                <img src="./images/prize-img3.png" class="prize-dec-img">
+                            </div>
+                            <div class="prize-dec-r">
+                                <p class="prize-dec-name">8折买菜券</p>
+                                <p class="prize-dec-text">8折买菜券 上限200元</p>
+                            </div>
+                        </div>
+                        <div class="prize-dec">
+                            <div class="prize-dec-l">
+                                <img src="./images/prize-img4.png" class="prize-dec-img">
+                            </div>
+                            <div class="prize-dec-r">
+                                <p class="prize-dec-name">10元满减券</p>
+                                <p class="prize-dec-text">10元满减券 满50元可用</p>
+                            </div>
+                        </div>
+                        <div class="prize-dec">
+                            <div class="prize-dec-l">
+                                <img src="./images/prize-img5.png" class="prize-dec-img">
+                            </div>
+                            <div class="prize-dec-r">
+                                <p class="prize-dec-name">5元满减券</p>
+                                <p class="prize-dec-text">5元满减券 满30元可用</p>
+                            </div>
+                        </div>
+                        <div class="prize-dec">
+                            <div class="prize-dec-l">
+                                <img src="./images/prize-img5.png" class="prize-dec-img">
+                            </div>
+                            <div class="prize-dec-r">
+                                <p class="prize-dec-name">食用油</p>
+                                <p class="prize-dec-text">金龙鱼调和油4L</p>
+                            </div>
+                        </div>
+                        <div class="prize-dec">
+                            <div class="prize-dec-l">
+                                <img src="./images/prize-img5.png" class="prize-dec-img">
+                            </div>
+                            <div class="prize-dec-r">
+                                <p class="prize-dec-name">海天老抽</p>
+                                <p class="prize-dec-text">海天草菇老抽1.28L</p>
+                            </div>
+                        </div>
+                        <div class="prize-dec">
+                            <div class="prize-dec-l">
+                                <img src="./images/prize-img5.png" class="prize-dec-img">
+                            </div>
+                            <div class="prize-dec-r">
+                                <p class="prize-dec-name">太太乐鸡精</p>
+                                <p class="prize-dec-text">太太乐三星鸡精227g</p>
+                            </div>
+                        </div>
+                        <div class="prize-dec">
+                            <div class="prize-dec-l">
+                                <img src="./images/prize-img5.png" class="prize-dec-img">
+                            </div>
+                            <div class="prize-dec-r">
+                                <p class="prize-dec-name">洗洁精</p>
+                                <p class="prize-dec-text">立白洗洁精</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="con-item">
+                <div class="item-title3"></div>
+                <div class="item-con3">
+                    <p>1.每个账号每天可免费获得3次转盘抽奖机会</p>
+                    <p>2.抽奖次数不予累计，每日零点更新抽奖次数</p>
+                    <p>3.奖品类型分为实物奖品及优惠券两种类型</p>
+                    <p>4.实物奖品：在中奖后的2个工作日内会有居友家工作人员与您电话核实信息（转盘右上方-我的奖品-可填写中奖信息）</p>
+                    <p>5.优惠券：优惠券奖励在中奖后即时到账（部分特价商品不支持优惠券）</p>
+                    <p>6.本活动最终解释归属权归杭州枓栱信息科技有限公司所有</p>
+                </div>
+                <p id="declare"
+                    style="font-size: 12px;color: #fff;text-align: center;margin-bottom: 12px;display: none;">
+                    注：该活动与apple Inc 无关</p>
+                <p style="font-size: 12px;color: #fff;text-align: center;padding-bottom: 0.2rem;">活动最终解释权为居友家所有</p>
+            </div>
+        </div>
+
+        <!-- <div class="footer"></div> -->
+
+        <!-- 中奖结果弹窗 -->
+        <div class="popup">
+            <div class="popup-con">
+                <p class="luck-result-text1"></p>
+                <p class="luck-result-text2"></p>
+                <img src="" class="result-prize-img">
+                <p class="result-prize-name">小米键盘</p>
+                <div class="popup-btn">知道了</div>
+            </div>
+        </div>
+        <!-- 我的奖品弹窗 -->
+        <div class="myPrize-popup">
+            <div class="myPrize-popup-con">
+                <div class="myPrize-popup-title">我的礼包</div>
+                <div class="myPrize-list">
+
+                </div>
+                <img src="./images/close.png" class="close" alt="">
+            </div>
+        </div>
+
+
+        <!-- 兑换抽奖弹窗 -->
+        <div class="exchange-popup">
+            <div class="exchange-popup-con">
+                <p class="exchange-popup-title">是否兑换</p>
+                <p class="exchange-popup-text">本次兑换消耗<span style="color:red">50积分</span></p>
+                <div class="exchange-popup-btn flexBox flexBetween flexAlignCenter">
+                    <div class="exchange-popup-cancel flex1">取消</div>
+                    <div class="exchange-popup-confirm flex1">确定</div>
+                </div>
+            </div>
+        </div>
+        <!-- toast -->
+        <div class="toast"></div>
+    </div>
+
+    <script src="./js/jquery.js"></script>
+    <!-- <script src="./js/jquery.qrcode.min.js"></script> -->
+    <script src="./js/awardRotate.js"></script>
+    <script src="./js/aes.js"></script>
+    <!-- <script src="./js/index.js"></script> -->
+    <script src="./js/main.js"></script>
+    <script>
+        var protocol = window.location.protocol
+        // var baseUrl = protocol + "//jyj-dev-api.idougong.com";
+        var baseUrl = protocol + "//jyj-api.idougong.com";
+        // var baseUrl = protocol+"//192.168.0.52:8000";
+
+        window.jyjAjax = function (callback, url, method, params) {
+            $.ajax({
+                type: method,
+                url: baseUrl + url,
+                timeout: 10000,
+                dataType: 'json',
+                // data:JSON.stringify(params),
+                data: params,
+                xhrFields: {
+                    withCredentials: true // 这里设置了withCredentials
+                },
+                success: function (res) {
+                    callback(res)
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    // 通常 textStatus 和 errorThrown 之中
+                    // 只有一个会包含信息
+                    this; // 调用本次AJAX请求时传递的options参数
+                    console.log('this', this)
+                    console.log('xml', XMLHttpRequest)
+                    console.log('textstatus', textStatus)
+                    console.log('errorThrown', errorThrown)
+
+                }
+            })
+        }
+
+        window.exchangeNum = 0;   //积分兑换次数
+        // return false
+        $(function () {
+            if (getUrlParam('u')) {
+                tologin()
+            } else {
+
+                getUserData(); //获取用户信息 
+                getHitData(); //获取中奖列表
+                // getLuckPointNumData(); // 获取剩余兑换次数
+
+                getLuckNumData(); //获取剩余抽奖次数
+                getLuckInfo(); //获取中奖信息
+            }
+            var deviceType = getDeviceType()
+            console.log(deviceType.isIOS)
+            if (deviceType.isIOS) {
+                document.querySelector('#declare').style.display = 'block'
+            }
+
+            //注册事件监听，初始化
+            function setupWebViewJavascriptBridge(callback) {
+                if (window.WebViewJavascriptBridge) {
+                    callback(WebViewJavascriptBridge)
+                } else {
+                    document.addEventListener(
+                        'WebViewJavascriptBridgeReady'
+                        , function () {
+                            callback(WebViewJavascriptBridge)
+                        },
+                        false
+                    );
+                }
+            }
+            //回调函数，接收java发送来的数据
+            setupWebViewJavascriptBridge(function (bridge) {
+                //默认接收
+                bridge.init(function (message, responseCallback) {
+                    document.getElementById("show").innerHTML = '默认接收到Java的数据： ' + message;
+                    var responseData = 'js默认接收完毕，并回传数据给java';
+                    responseCallback(responseData); //回传数据给java
+                });
+
+                //指定接收，参数functionInJs 与java保持一致 js方法名称
+                bridge.registerHandler("functionInJs", function (data, responseCallback) {
+                    document.getElementById("show").innerHTML = '指定接收到Java的数据： ' + data;
+                    var responseData = 'js指定接收完毕，并回传数据给java';
+                    responseCallback(responseData); //回传数据给java
+                });
+
+                bridge.registerHandler("JSHNativeBack", function (data, responseCallback) {
+                    document.getElementById("show").innerHTML = '指定接收到Java的数据： ' + data;
+                    var responseData = 'js指定接收完毕，并回传数据给java';
+                    responseCallback(responseData); //回传数据给java
+                });
+
+                bridge.registerHandler("JSHNativeShare", function (data, responseCallback) {
+                    document.getElementById("show").innerHTML = '指定接收到Java的数据： ' + data;
+                    var responseData = 'js指定接收完毕，并回传数据给java';
+                    responseCallback(responseData); //回传数据给java
+                });
+
+                bridge.registerHandler("JSHNativeWxPay", function (data, responseCallback) {
+                    document.getElementById("show").innerHTML = '指定接收到Java的数据： ' + data;
+                    var responseData = 'js指定接收完毕，并回传数据给java';
+                    responseCallback(responseData); //回传数据给java
+                });
+
+                bridge.registerHandler("JSHNativeAliPay", function (data, responseCallback) {
+                    document.getElementById("show").innerHTML = '指定接收到Java的数据： ' + data;
+                    var responseData = 'js指定接收完毕，并回传数据给java';
+                    responseCallback(responseData); //回传数据给java
+                });
+
+                bridge.registerHandler("JSHNativeOcrIDCard", function (data, responseCallback) {
+                    document.getElementById("show").innerHTML = '指定接收到Java的数据： ' + data;
+                    var responseData = 'js指定接收完毕，并回传数据给java';
+                    responseCallback(responseData); //回传数据给java
+                });
+
+                bridge.registerHandler("JSHNativeLocation", function (data, responseCallback) {
+                    document.getElementById("show").innerHTML = '指定接收到Java的数据： ' + data;
+                    var responseData = 'js指定接收完毕，并回传数据给java';
+                    responseCallback(responseData); //回传数据给java
+                });
+
+                bridge.registerHandler("JSHNativeFilePath", function (data, responseCallback) {
+                    document.getElementById("show").innerHTML = '指定接收到Java的数据： ' + data;
+                    var responseData = 'js指定接收完毕，并回传数据给java';
+                    responseCallback(responseData); //回传数据给java
+                });
+
+                bridge.registerHandler("JSHNativeDeviceInfo", function (data, responseCallback) {
+                    document.getElementById("show").innerHTML = '指定接收到Java的数据： ' + data;
+                    var responseData = 'js指定接收完毕，并回传数据给java';
+                    responseCallback(responseData); //回传数据给java
+                });
+            })
+
+        })
+
+        getPrizesData(); // 获取奖品
+
+        // 去登录
+        function tologin() {
+            var params = {
+                phone: atob(getUrlParam('u')),
+                token: atob(getUrlParam('t'))
+            }
+            jyjAjax(function (res) {
+                if (res.code == 0) {
+                    getPrizesData(); // 获取奖品
+                    getUserData(); //获取用户信息 
+                    getHitData(); //获取中奖列表
+                    // getLuckPointNumData(); // 获取剩余兑换次数
+
+                    getLuckNumData(); //获取剩余抽奖次数
+                    getLuckInfo(); //获取中奖信息
+                } else {
+                    if (u && t) {
+                        console.log('u和t都有')
+                        wx.miniProgram.reLaunch({ url: '/commonPage/login/login' })
+                    } else {
+                        console.log('u和t出问题')
+                    }
+                }
+            }, '/v2/user/login', 'post', params)
+        }
+
+        //去登陆
+        function nativeLogin() {
+            console.log('执行nativelogin')
+            var device = getDeviceType();
+            var data = "";
+            console.log(device)
+            if (device.isIOS) {
+                console.log('监测到是ios')
+                //nativeClosePage 与ios对应
+                window.webkit.messageHandlers.nativeLogin.postMessage(data);
+            }
+            if (device.isAndroid) {
+                console.log('监测到是安卓')
+                window.WebViewJavascriptBridge.callHandler( //调用安卓的方法过去安卓的登录页面
+                    'nativeLogin',
+                    data,
+                    function (responseData) { //处理java回传的数据
+                        console.log('处理java回传的数据' + responseData)
+                        document.getElementById("show").innerHTML = responseData;
+                    }
+                );
+            }
+            console.log('nativeLogin结束')
+        }
+
+        //获取用户信息
+        function getUserData() {
+            jyjAjax(function (res) {
+                if (res.code == 0) {
+                    // console.log(res.data)
+                    $('.user-icon').attr('src', res.data.icon);
+                    $('.user-mobile').html(res.data.nickName);
+                    $('.user-points').html('积分:' + res.data.point);
+                } else {
+                    nativeLogin();
+                }
+            }, '/user/get', 'get');
+        }
+
+        //获取剩余兑换次数
+        // function getLuckPointNumData() {
+        //     jyjAjax(function (res) {
+        //         if (res.code == 0) {
+        //             exchangeNum = res.data;
+        //             $('.badge').html(exchangeNum); //剩余兑换次数
+        //             if (exchangeNum <= 0) {
+        //                 $('.exchange-lucky').addClass('exchange-lucky-gray');
+        //             }
+        //         }
+        //     }, '/v2/luckDraw/getLuckPointNum', 'get')
+        // }
+
+        //关闭抽奖结果弹窗
+        $('.popup-btn').click(function () {
+            // console.log($('.popup-btn').html())
+            if ($('.popup-btn').html() == '去填写信息') {
+                var id = window.luckyId[0];
+                window.luckyId.shift();
+                console.log('跳转id：' + id);
+                console.log('关闭弹窗后：' + window.luckyId);
+                $('.popup').hide();
+                window.location.href = './subinfo.html?id=' + id
+                // window.location.href = window.location.origin + '/luckyTurntable/subinfo.html?id='+ window.luckyId[0];
+                // window.location.href = window.location.origin+'/luckyTurntable/subinfo.html';
+            } else {
+                // console.log(window.location)
+                window.luckyId.shift();
+                console.log('关闭弹窗后：' + window.luckyId);
+                $('.popup').hide();
+                getUserData();
+            }
+        })
+
+        //兑换抽奖次数
+        $('.exchange-lucky').click(function () {
+            if (exchangeNum <= 0) {
+                $('.toast').html('今日兑换次数已用完').show();
+                setTimeout(function () {
+                    $('.toast').hide();
+                }, 3000)
+                return false;
+            }
+            $('.exchange-popup').show();
+        })
+        //取消兑换抽奖
+        $('.exchange-popup-cancel').click(function () {
+            $('.exchange-popup').hide();
+        })
+        //确定兑换抽奖
+        $('.exchange-popup-confirm').click(function () {
+            jyjAjax(function (res) {
+                if (res.code == 0) {
+                    console.log(res.data);
+                    todayNum++;
+                    $('.today-num').html(todayNum); //今日剩余次数
+                    $('.exchange-popup').hide();
+                    //剩余兑换次数
+                    exchangeNum--;
+                    $('.badge').html(exchangeNum);
+                    //抽奖按钮变亮
+                    if (todayNum > 0) {
+                        $('.lucky-btn').attr('src', './images/lucky-btn.png')
+                    }
+                    //兑换置灰
+                    if (exchangeNum <= 0) {
+                        $('.exchange-lucky').addClass('exchange-lucky-gray');
+                    }
+                    //获取用户信息
+                    jyjAjax(function (res) {
+                        if (res.code == 0) {
+                            // console.log(res.data)
+                            $('.user-icon').attr('src', res.data.icon);
+                            $('.user-mobile').html(res.data.nickName);
+                            $('.user-points').html('积分:' + res.data.point);
+                        } else {
+                            nativeLogin()
+                        }
+                    }, '/user/get', 'get');
+                } else {
+                    $('.toast').html('今日兑换次数已用完').show();
+                    setTimeout(function () {
+                        $('.toast').hide();
+                    }, 3000)
+                }
+            }, '/v2/luckDraw/addLuckNum', 'post', { addNum: 1 })
+
+        })
+
+        var modal = $('.exchange-popup')[0]; // 弹窗dom对象
+        modal.addEventListener('touchmove', function (e) {
+            e.preventDefault();
+        }, false);
+
+        //滚动
+        function scroll(dom) {
+            dom.animate({ marginTop: '-0.6rem' }, 800, function () {
+                dom.append(dom.find('li:first-child'))
+                dom.css({ 'margin-top': '0' })
+            })
+        }
+
+        //获取URL参数
+        function getUrlParam(name) {
+            var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)');
+            // 获取地址栏的查询参数字符串
+            var search = window.location.search;
+            var result = decodeURIComponent(search).substring(1).match(reg);
+            if (result) return result[2];
+            return '';
+        }
+        //获取设备类型
+        function getDeviceType() {
+            var type = window.navigator.userAgent.toLocaleLowerCase();
+            var isAndroid = /android/.test(type);
+            var isIOS = /iphone|ipad|ipod/.test(type);
+            return {
+                isAndroid: isAndroid,
+                isIOS: isIOS
+            }
+        }
+    </script>
+</body>
+
+</html>

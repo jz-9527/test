@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>填写信息</title>
+    <link rel="shortcut icon" href="#" />
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/LArea.css">
+    <script src="./js/resize.js"></script>
+    <style>
+        input {
+            outline: none;
+        }
+
+        .form-item {
+            line-height: 0.48rem;
+            padding: 0.2rem 0.32rem;
+        }
+
+        .form-lable {
+            width: 1.8rem;
+            font-size: 0.28rem;
+        }
+
+        .form-input {
+            width: 100%;
+            font-size: 0.28rem;
+        }
+
+        .arrow {
+            width: 0.2rem;
+            height: 0.2rem;
+            margin-top: 0.1rem;
+            margin-left: 0.2rem;
+            border-top: 1px solid #969799;
+            border-right: 1px solid #969799;
+            transform: rotate(45deg);
+        }
+
+        .submit-btn {
+            display: block;
+            width: 6.9rem;
+            height: .88rem;
+            line-height: .88rem;
+            font-size: .36rem;
+            color: #fff;
+            text-align: center;
+            margin: .53rem auto 0 auto;
+            background: #f60;
+            border-radius: .12rem;
+            outline: none;
+            border: none;
+        }
+
+        .toast {
+            display: none;
+            position: fixed;
+            font-size: 0.3rem;
+            color: #fff;
+            padding: 0.2rem 0.3rem;
+            background: #111;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 0.1rem;
+        }
+
+        input::-webkit-input-placeholder {
+            color: #969799;
+        }
+
+        input::-moz-input-placeholder {
+            color: #969799;
+        }
+
+        input::-ms-input-placeholder {
+            color: #969799;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <form id="form">
+            <div class="form-item flexBox">
+                <div class="form-lable">姓名</div>
+                <div class="form-input-box flex1"><input type="text" name="name" class="form-input" placeholder="请输入姓名">
+                </div>
+            </div>
+            <div class="form-item flexBox">
+                <div class="form-lable">电话号码</div>
+                <div class="form-input-box flex1"><input type="tel" name="phone" class="form-input"
+                        placeholder="请输入电话号码" maxlength="11"></div>
+            </div>
+            <div class="form-item flexBox">
+                <div class="form-lable">收货地址</div>
+
+                <div class="form-input-box flex1" id="addressBox">
+                    <input type="text" id="address" name="address" readonly value=""
+                        style="text-align: left;color:#969799" class="form-input"></div>
+                <div class="arrow"></div>
+
+            </div>
+            <div class="form-item flexBox">
+                <div class="form-lable">详细地址</div>
+                <div class="form-input-box flex1"><input type="text" name="detailAddress" class="form-input"
+                        placeholder="请输入详细地址"></div>
+            </div>
+        </form>
+        <button type="button" class="submit-btn">提交</button>
+    </div>
+    <div class="toast"></div>
+    <script src="./js/jquery.js"></script>
+    <script src="./js/LAreaData1.js"></script>
+    <script src="./js/LAreaData2.js"></script>
+    <script src="./js/LArea.js"></script>
+    <script src="./js/http.js"></script>
+    <script>
+        var area1 = new LArea();
+
+        $(function () {
+            if (getUrlParam('u')) {
+                tologin()
+            } else {
+                getUserData(); //获取用户信息 
+            }
+            //注册事件监听，初始化
+            function setupWebViewJavascriptBridge(callback) {
+                if (window.WebViewJavascriptBridge) {
+                    callback(WebViewJavascriptBridge)
+                } else {
+                    document.addEventListener(
+                        'WebViewJavascriptBridgeReady'
+                        , function () {
+                            callback(WebViewJavascriptBridge)
+                        },
+                        false
+                    );
+                }
+            }
+            //回调函数，接收java发送来的数据
+            setupWebViewJavascriptBridge(function (bridge) {
+                //默认接收
+                bridge.init(function (message, responseCallback) {
+                    document.getElementById("show").innerHTML = '默认接收到Java的数据： ' + message;
+                    var responseData = 'js默认接收完毕，并回传数据给java';
+                    responseCallback(responseData); //回传数据给java
+                });
+
+                //指定接收，参数functionInJs 与java保持一致 js方法名称
+                bridge.registerHandler("functionInJs", function (data, responseCallback) {
+                    document.getElementById("show").innerHTML = '指定接收到Java的数据： ' + data;
+                    var responseData = 'js指定接收完毕，并回传数据给java';
+                    responseCallback(responseData); //回传数据给java
+                });
+
+                bridge.registerHandler("JSHNativeBack", function (data, responseCallback) {
+                    document.getElementById("show").innerHTML = '指定接收到Java的数据： ' + data;
+                    var responseData = 'js指定接收完毕，并回传数据给java';
+                    responseCallback(responseData); //回传数据给java
+                });
+
+                bridge.registerHandler("JSHNativeShare", function (data, responseCallback) {
+                    document.getElementById("show").innerHTML = '指定接收到Java的数据： ' + data;
+                    var responseData = 'js指定接收完毕，并回传数据给java';
+                    responseCallback(responseData); //回传数据给java
+                });
+
+                bridge.registerHandler("JSHNativeWxPay", function (data, responseCallback) {
+                    document.getElementById("show").innerHTML = '指定接收到Java的数据： ' + data;
+                    var responseData = 'js指定接收完毕，并回传数据给java';
+                    responseCallback(responseData); //回传数据给java
+                });
+
+                bridge.registerHandler("JSHNativeAliPay", function (data, responseCallback) {
+                    document.getElementById("show").innerHTML = '指定接收到Java的数据： ' + data;
+                    var responseData = 'js指定接收完毕，并回传数据给java';
+                    responseCallback(responseData); //回传数据给java
+                });
+
+                bridge.registerHandler("JSHNativeOcrIDCard", function (data, responseCallback) {
+                    document.getElementById("show").innerHTML = '指定接收到Java的数据： ' + data;
+                    var responseData = 'js指定接收完毕，并回传数据给java';
+                    responseCallback(responseData); //回传数据给java
+                });
+
+                bridge.registerHandler("JSHNativeLocation", function (data, responseCallback) {
+                    document.getElementById("show").innerHTML = '指定接收到Java的数据： ' + data;
+                    var responseData = 'js指定接收完毕，并回传数据给java';
+                    responseCallback(responseData); //回传数据给java
+                });
+
+                bridge.registerHandler("JSHNativeFilePath", function (data, responseCallback) {
+                    document.getElementById("show").innerHTML = '指定接收到Java的数据： ' + data;
+                    var responseData = 'js指定接收完毕，并回传数据给java';
+                    responseCallback(responseData); //回传数据给java
+                });
+
+                bridge.registerHandler("JSHNativeDeviceInfo", function (data, responseCallback) {
+                    document.getElementById("show").innerHTML = '指定接收到Java的数据： ' + data;
+                    var responseData = 'js指定接收完毕，并回传数据给java';
+                    responseCallback(responseData); //回传数据给java
+                });
+            })
+
+        })
+
+        //获取用户信息
+        function getUserData() {
+            jyjAjax(function (res) {
+                if (res.code == 0) {
+                    // console.log(res.data)
+                    $('.user-icon').attr('src', res.data.icon);
+                    $('.user-mobile').html(res.data.nickName);
+                    $('.user-points').html('积分:' + res.data.point);
+                } else {
+                    nativeLogin();
+                }
+            }, '/user/get', 'get');
+        }
+        // 去登录
+        function tologin() {
+            var params = {
+                phone: atob(getUrlParam('u')),
+                token: atob(getUrlParam('t'))
+            }
+            jyjAjax(function (res) {
+                if (res.code == 0) {
+                    getUserData(); //获取用户信息 
+                } else {
+                    if (u && t) {
+                        wx.miniProgram.reLaunch({ url: '/commonPage/login/login' })
+                    } else {
+                    }
+                }
+            }, '/v2/user/login', 'post', params)
+        }
+
+        //去登陆
+        function nativeLogin() {
+            console.log('执行nativelogin')
+            var device = getDeviceType();
+            var data = "";
+            console.log(device)
+            if (device.isIOS) {
+                console.log('监测到是ios')
+                //nativeClosePage 与ios对应
+                window.webkit.messageHandlers.nativeLogin.postMessage(data);
+            }
+            if (device.isAndroid) {
+                console.log('监测到是安卓')
+                window.WebViewJavascriptBridge.callHandler( //调用安卓的方法过去安卓的登录页面
+                    'nativeLogin',
+                    data,
+                    function (responseData) { //处理java回传的数据
+                        console.log('处理java回传的数据' + responseData)
+                        document.getElementById("show").innerHTML = responseData;
+                    }
+                );
+            }
+            console.log('nativeLogin结束')
+        }
+        //获取URL参数
+        function getUrlParam(name) {
+            var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)');
+            // 获取地址栏的查询参数字符串
+            var search = window.location.search;
+            var result = decodeURIComponent(search).substring(1).match(reg);
+            if (result) return result[2];
+            return '';
+        }
+
+        area1.init({
+            'trigger': '#address', //触发选择控件的文本框，同时选择完毕后name属性输出到该位置
+            'valueTo': '#addressBox', //选择完毕后id属性输出到该位置
+            'keys': {
+                id: 'id',
+                name: 'name'
+            }, //绑定数据源相关字段 id对应valueTo的value属性输出 name对应trigger的value属性输出
+            'type': 1, //数据源类型
+            'data': LAreaData //数据源
+        });
+        area1.value = [27, 16, 6];//控制初始位置，注意：该方法并不会影响到input的value
+        $('.submit-btn').click(function () {
+            var form = $('#form').serialize().split('&');
+            var obj = {};
+        
+            form.forEach(function (item) {
+                var arr = item.split('=');
+                if (arr[0] != 'address') {
+                    obj[arr[0]] = decodeURIComponent(arr[1])
+                } else {
+                    obj[arr[0]] = decodeURIComponent(arr[1]).split(',').join('')
+                }
+            })
+            //验证name
+            if (!obj.name) {
+                $('.toast').html('姓名不能为空').show();
+                setTimeout(function () {
+                    $('.toast').hide();
+                }, 3000)
+                return false
+            }
+            //验证手机号
+            if (!obj.phone) {
+                $('.toast').html('手机号不能为空').show();
+                setTimeout(function () {
+                    $('.toast').hide();
+                }, 3000)
+                return false
+            }
+            //验证手机号格式
+            if (!(/^1[3456789]\d{9}$/.test(obj.phone))) {
+                $('.toast').html('请输入正确的手机号').show();
+                setTimeout(function () {
+                    $('.toast').hide();
+                }, 3000)
+                return false
+            }
+
+            //验证地址
+            if (!obj.address) {
+                $('.toast').html('地址不能为空').show();
+                setTimeout(function () {
+                    $('.toast').hide();
+                }, 3000)
+                return false
+            }
+
+            //详细地址
+            if (!obj.detailAddress) {
+                $('.toast').html('详细地址不能为空').show();
+                setTimeout(function () {
+                    $('.toast').hide();
+                }, 3000)
+                return false
+            }
+
+            var luckId = window.location.search.slice(1).split('=')[1]
+            var params = {
+                id: luckId,
+                name: decodeURIComponent(obj.name),
+                phone: obj.phone,
+                address: obj.address + obj.detailAddress
+            }
+            // jyjAjax(function (res) {
+            //     if (res.code == 0) {
+            //         $('.toast').html('提交成功').show();
+            //         setTimeout(function () {
+            //             $('.toast').hide();
+            //         }, 3000)
+            //         setTimeout(() => {
+            //             // window.location.href = window.location.origin+'/index.html';
+            //             // window.location.href = window.location.origin + '/luckyTurntable/index.html';
+            //             window.history.go(-1)
+            //         }, 1000)
+            //     } else {
+            //         $('.toast').html(res.msg).show();
+            //         setTimeout(function () {
+            //             $('.toast').hide();
+            //         }, 3000)
+            //     }
+            // }, '/v2/luckDraw/submitInfo', 'post', params)
+        })
+
+        //获取设备类型
+        function getDeviceType() {
+            var type = window.navigator.userAgent.toLocaleLowerCase();
+            var isAndroid = /android/.test(type);
+            var isIOS = /iphone|ipad|ipod/.test(type);
+            return {
+                isAndroid: isAndroid,
+                isIOS: isIOS
+            }
+        }
+    </script>
+</body>
+</html>
